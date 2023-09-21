@@ -1,4 +1,6 @@
 from django.db import models
+from cryptography.fernet import Fernet
+
 
 # Create your models here.
 class CloudLogin(models.Model):

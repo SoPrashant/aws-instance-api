@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter AWS Account ID</title>
+</head>
+<body>
+    <h1>Enter AWS Account ID</h1>
+    <form method="post" action="{% url 'enter-account-id' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Fetch EC2 Instances</button>
+    </form>
+</body>
+</html>

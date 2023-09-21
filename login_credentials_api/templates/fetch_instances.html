@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EC2 Instances</title>
+</head>
+<body>
+    <h1>EC2 Instances for AWS Account ID: {{ aws_credentials.account_id }}</h1>
+    <ul>
+        {% for instance in instances %}
+            <li>
+                <strong>Instance ID:</strong> {{ instance.InstanceId }}<br>
+                <strong>Instance Type:</strong> {{ instance.InstanceType }}<br>
+                <!-- Add other instance attributes as needed -->
+            </li>
+        {% empty %}
+            <p>No instances found.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

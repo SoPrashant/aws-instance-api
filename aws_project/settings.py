@@ -9,8 +9,17 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import logging
 from pathlib import Path
+#import environ
+
+#env = environ.Env()
+
+#FERNET_SECRET_KEY=b'r4TxeVZR_MKq4kluk12UaIrmw6A7Pdwi2icYRwbENKI='
+
+#FERNET_SECRET_KEY=env.str('FERNET_SECRET_KEY')
+
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,3 +134,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',  # Adjust the log level as needed
+            'class': 'logging.FileHandler',
+            'filename': 'aws_project.log',  # Specify the log file location
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'DEBUG',
+    },
+}
