@@ -2,7 +2,6 @@ import logging
 
 logging.getLogger('file')
 
-
 from django.shortcuts import render, redirect
 from rest_framework import viewsets
 from .models import CloudLogin
@@ -15,6 +14,7 @@ from .serializers import CloudLoginSerializer
 from django.http import JsonResponse
 from .models import CloudLogin
 import boto3
+import csv
 
 from .forms import AccountIdForm
 
@@ -60,7 +60,8 @@ def fetch_instances(request, account_id):
                 instance_list.append({
                     'InstanceId': instance['InstanceId'],
                     'InstanceType': instance['InstanceType'],
-                    # Add other instance attributes as needed
+                    'LaunchTime': instance['LaunchTime'],
+                    'ImageId': instance['ImageId'],
                 })
 
         return render(request, 'fetch_instances.html', {'instances': instance_list})
